@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+<body>
+<form action="/myapp/post_route_edit/" method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+    <table border="1" class="table table-bordered ">
+        <input type="hidden" name="id" value="{{ data.id }}" class="form-control">
+
+        <tr><th>Route</th><td><input type="text" name="route" value="{{ data.rname }}" pattern="[a-z/A-Z]{3,}" class="form-control"></td></tr>
+        <tr><th>Source</th><td><input type="text" name="source" value="{{ data.source }}" pattern="[a-z/A-Z]{3,}" class="form-control"></td></tr>
+        <tr><th>Destination</th><td><input type="text" name="destination" value="{{ data.destination }}" pattern="[a-z/A-Z]{3,}" class="form-control"></td></tr>
+{#        <tr><th>Duration</th><td><input type="text" name="duration" value="{{ data.duration }}"class="form-control"></td></tr>#}
+
+
+
+
+
+
+
+        <tr><td><input type="submit" name="submit" value="update" class="btn btn-success"></td></tr>
+
+
+
+    </table>
+</form>
+
+
+</body>
+{% endblock %}
+
+</html>

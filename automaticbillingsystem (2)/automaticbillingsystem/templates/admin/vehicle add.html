@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/Add_vehicle_post/" enctype="multipart/form-data" >
+    {% csrf_token %}
+  <table width="200" border="1" class="table table-bordered">
+    <tr>
+      <th width="180px">vehicle name </th>
+      <td>
+      <input type="text" name="textfield" id="textfield" pattern="[a-z/A-Z]{3,}" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <th>vehicle number</th>
+      <td>
+      <input type="text" name="textfield2" id="textfield2" pattern="[a-z/A-Z]{3,}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th>photo</th>
+      <td>
+      <input type="file" name="textfield3" id="textfield3" required/></td>
+    </tr>
+      <tr>
+      <th>model</th>
+      <td>
+      <input type="text" name="textfield4" id="textfield3" pattern="[a-z/A-Z]{3,}" class="form-control" required/></td>
+    </tr>
+
+      <tr>
+          <td><label for="route">Route:</label></td>
+          <td>
+              <select id="route" name="route" required>
+                  {% for i in data %}
+                      <option value="{{ i.id }}">{{ i.rname }}</option>
+                  {% endfor %}
+              </select>
+          </td>
+      </tr>
+    <tr>
+        <td></td>
+      <td>&nbsp;
+      <input type="submit" name="button" id="button" value="Add" class="btn btn-success" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+
+</html>

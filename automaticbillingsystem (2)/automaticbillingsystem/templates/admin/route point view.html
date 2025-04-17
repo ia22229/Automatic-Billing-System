@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/myapp//" >
+    {% csrf_token %}
+  <table  class="pull-left">
+    <tr>
+
+      <td>
+      <input type="text" placeholder="Search by routename" name="textfield"  id="textfield" class="form-control"/></td>
+      <td> <input type="submit" name="button" id="button" value="Go"   class="btn btn-success" /></td>
+
+    </tr>
+  </table>
+<br>
+<br>
+{% if data %}
+  <table  class="table table-bordered" border="3px">
+    <tr>
+      <th>Slno</th>
+      <th>place</th>
+      <th>latitude</th>
+      <th>longitude</th>
+
+      <th>route</th>
+      <th colspan="2">&nbsp;</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+        <td width="50px">{{ forloop.counter }}</td>
+      <td>{{ i.place }}</td>
+      <td>&nbsp;{{ i.latitude }}</td>
+      <td>{{ i.longitude }}</td>
+      <td>{{ i.ROUTE.rname }}</td>
+
+
+      <td width="50px"><a href="/myapp/route_point_edit/{{ i.id }}" class="btn btn-info">Edit</a></td>
+
+      <td width="50px"><a href="/myapp/delete_routepoint/{{ i.id }}" class="btn btn-danger">Delete</a></td>
+    </tr>
+      {% endfor %}
+
+  </table>
+
+{% else %}
+<center class="mt-5">
+<span style=" font-weight: 900">
+
+<img src="/static/assets/images/no-data.png" alt="no data" width="70" height="70"/>
+
+No data
+
+</span>
+
+</center>
+
+{% endif %}
+</form>
+</body>
+{% endblock %}
+
+</html>
