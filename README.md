@@ -165,9 +165,3 @@ For queries, feedback, or collaboration:
 ## 📜 License
 
 This project is licensed under the [MIT License](LICENSE).
-
-```
-
----
-
-Let me know if you'd like me to generate a `LICENSE` file too or prep the whole repo structure as a template.
