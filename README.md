@@ -158,7 +158,7 @@ pip install -r requirements.txt
 
 For queries, feedback, or collaboration:
 - Open an issue on this repository
-- [Your contact info or email if desired]
+- Email : ia9400265514@gmail.com
 
 ---
 
